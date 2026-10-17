@@ -1,0 +1,92 @@
+@use './scss/styles';
+
+:root {
+  --paper: #faf9f6;
+  --ink: #202a29;
+  --muted: #5d6865;
+  --line: #dcdfd8;
+  --accent: #fc7f71;
+  --accent-dark: #943d32;
+  --font-min-clamp: 12px;
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+main {
+  min-height: 65vh;
+}
+a {
+  text-underline-offset: 0.2em;
+}
+:where(a, button, summary):focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 4px;
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+code {
+  padding: 2pxv 5pxv;
+  border-radius: 3pxv;
+  background: #fff0ef;
+  color: var(--accent-dark);
+  font-family: var(--font-family-monospace);
+  font-size: 0.85em;
+}
+pre {
+  padding: 24pxv;
+  background: var(--ink);
+  color: #f5f2e9;
+  border-radius: 12pxv;
+  overflow-x: auto;
+  font-family: var(--font-family-monospace);
+  font-size: 14pxv;
+  line-height: 1.8;
+}
+pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  padding: 12px;
+  z-index: 20;
+  background: var(--paper);
+  transform: translateY(-200%);
+  &:focus {
+    transform: translateY(0);
+  }
+}
+.site-footer {
+  width: min(100% - 48pxv, 1280pxv);
+  margin: 80pxv auto 0;
+  padding-block: 28pxv;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20pxv;
+  font-size: 13pxv;
+  color: var(--muted);
+  a {
+    color: var(--ink);
+  }
+  p {
+    margin: 0;
+    font-size: inherit;
+  }
+}
+@media (width < 768px) {
+  .site-footer {
+    width: calc(100% - 40pxv);
+  }
+}

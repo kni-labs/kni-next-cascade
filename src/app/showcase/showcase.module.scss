@@ -1,0 +1,87 @@
+.page {
+  width: min(100% - 48pxv, 1280pxv);
+  margin-inline: auto;
+}
+.intro {
+  padding-block: 76pxv 56pxv;
+  max-width: 760pxv;
+  h1 {
+    font-size: clamp(36px, 56pxv, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.055em;
+    margin-block: 16pxv 24pxv;
+  }
+  > p:last-child {
+    font-size: 18pxv;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+}
+.eyebrow {
+  font-size: 11pxv;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: 64pxv;
+  padding-block: 40pxv;
+  border-top: 1px solid var(--line);
+  h2 {
+    font-size: 24pxv;
+    letter-spacing: -0.04em;
+    margin-block: 16pxv;
+  }
+  > div > p {
+    font-size: 15pxv;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+}
+.samples {
+  display: grid;
+  gap: 28pxv;
+  > div > code {
+    display: inline-block;
+    margin-bottom: 12pxv;
+  }
+  h3,
+  p {
+    margin: 0;
+  }
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16pxv;
+}
+.fluidCard {
+  padding: 32pxv;
+  border-radius: 12pxv;
+  background: #eeeae0;
+  > span {
+    font-size: 26pxv;
+    letter-spacing: -0.04em;
+  }
+  p {
+    margin-block: 12pxv 24pxv;
+  }
+  pre {
+    margin: 0;
+  }
+}
+@media (width < 768px) {
+  .page {
+    width: calc(100% - 40pxv);
+  }
+  .intro {
+    padding-block: 48pxv 32pxv;
+  }
+  .section {
+    grid-template-columns: 1fr;
+    gap: 28pxv;
+  }
+}

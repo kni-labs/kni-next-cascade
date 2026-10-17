@@ -1,0 +1,49 @@
+{
+  "name": "kni-next-cascade",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "postinstall": "node scripts/seed-cascade.mjs",
+    "cascade:seed": "node scripts/seed-cascade.mjs",
+    "predev": "npm run cascade:seed",
+    "prebuild": "npm run cascade:seed",
+    "typecheck": "next typegen && tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test tests/seed-cascade.test.mjs",
+    "test:e2e": "playwright test",
+    "check": "npm run lint && npm run typecheck && npm test && npm run format:check"
+  },
+  "dependencies": {
+    "next": "16.4.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^10.13.0",
+    "eslint-config-next": "16.4.2",
+    "kni-cascade": "^1.5.1",
+    "postcss": "^8.5.30",
+    "postcss-pxv": "^2.0.0",
+    "prettier": "^3.9.10",
+    "sass": "^1.105.2",
+    "typescript": "^5"
+  },
+  "description": "A lean Next.js starter with one-time kni-cascade SCSS seeding.",
+  "engines": {
+    "node": ">=22.13.0 <23",
+    "npm": ">=10 <12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kni-labs/kni-next-cascade.git"
+  }
+}
