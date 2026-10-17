@@ -28,7 +28,7 @@
     "@types/node": "^22.20.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^10.13.0",
+    "eslint": "^9.39.5",
     "eslint-config-next": "16.4.2",
     "kni-cascade": "^1.5.1",
     "postcss": "^8.5.30",
