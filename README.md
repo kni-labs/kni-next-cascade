@@ -19,19 +19,20 @@ Node 22.13+ on the Node 22 line is used to match both Next.js and kni-cascade's 
 
 ## How the one-time seed works
 
-The first install copies the installed npm package's `scss/` into `src/styles/scss/`.
-The template intentionally does not contain that folder. **Commit the seeded SCSS in
-your new project**, then customize it freely. Installing again or updating the npm
-package never overwrites an existing directory, even if it is empty.
+On first install, the postinstall script fetches the newest stable **kni-cascade
+1.x** from npm, even when the template lockfile pins an older release. It saves
+that version in the project's dependency and lockfile, then copies its `scss/`
+into `src/styles/scss/`. Major 2 and prereleases are excluded. Registry access is
+required for first setup; a failed refresh fails setup instead of seeding an old
+version. `--ignore-scripts` bypasses automatic setup.
 
-The dependency uses `^1.5.1`, allowing subsequent compatible 1.x releases, excluding
-2.x. `package-lock.json` pins the installed release for repeatable builds; a normal
-install with that lockfile does not promise the newest release. For a brand-new
-project that should use the latest compatible 1.x release, before the first install:
-
-```sh
-npm install --save-dev kni-cascade@1
-```
+The template intentionally does not contain the Sass folder. **Commit the seeded
+SCSS in your new project**, then customize it freely. Once `src/styles/scss/`
+exists—even if empty—the setup script skips the package refresh and preserves the
+entire folder. Subsequent installs use the project's lockfile. The same guard
+applies to `cascade:seed`, development, and build hooks; deleting the folder opts
+back into first setup. Fresh `npm ci` also refreshes Cascade before seeding and
+intentionally updates the copied template lockfile.
 
 Keep the lockfile and seeded styles in the resulting project. For existing projects,
 review upstream changes and merge relevant SCSS manually. Do not delete customized
